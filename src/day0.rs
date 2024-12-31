@@ -2,7 +2,10 @@ use actix_web::{get, web, Responder};
 use actix_web::http::StatusCode;
 use actix_web::web::Redirect;
 
-
+pub fn configure(cfg: &mut web::ServiceConfig) {
+    cfg.service(hello_world)
+        .service(seek);
+}
 
 // Hello bird
 #[get("/")]
